@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+  .container{
+    margin-top: 30px;
+  }
+</style>
+<div class="container">
+    <form class="p-5 border rounded-3 bg-light" method="POST">
+        {% csrf_token %}
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" name="last_name" placeholder="username">
+        <label for="floatingInput">First Name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" name="first_name" placeholder="username">
+        <label for="floatingInput">Last Name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" name="username" placeholder="username">
+        <label for="floatingInput">username</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" name="email" placeholder="username">
+        <label for="floatingInput">email</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" name="re_password" placeholder="Password">
+        <label for="floatingPassword">Repeat Password</label>
+      </div>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sigh Up</button>
+      <hr class="my-4">
+      <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+    </form>
+</div
+{% endblock body %}
