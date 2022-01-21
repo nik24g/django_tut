@@ -1,13 +1,17 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate, login, logout
-from .models import Contact
+from .models import Contact, Product
 from django.contrib.auth.models import User
 
 # Create your views here.
 
 def index(request):
     if request.user.is_authenticated:
-        return render(request, 'index.html')
+        context = {}
+        products = Product.objects.all()
+        context['products'] = products
+        return render(request, 'index.html', context)
+    
     return redirect("/login")
 
 def about(request):

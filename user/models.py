@@ -3,6 +3,7 @@ from distutils.command.upload import upload
 import email
 from email.headerregistry import Address
 from statistics import mode
+from unicodedata import category
 from django.db import models
 from .managers import CustomUserManager
 
@@ -35,3 +36,13 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    dsc = models.TextField()
+    price = models.IntegerField()
+    category = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='user/product', null=True, blank=True)
+
+    def __str__(self):
+        return self.name

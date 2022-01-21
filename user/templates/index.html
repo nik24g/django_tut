@@ -2,8 +2,24 @@
 
 {% block title %}Home{% endblock title %}
 {% block body %}
-
-<h2>This is home page</h2>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga quia eveniet modi odio atque voluptatem iste. Obcaecati veritatis iure reiciendis hic quam voluptatem atque voluptate quo, facere perspiciatis officiis vel eaque reprehenderit, natus voluptatibus.</p>
-
+<style>
+  .boxbody{
+    display: inline-block;
+  }
+  .boxbody img{
+    height: 200px;
+  }
+</style>
+{% for product in products %}
+<div class="boxbody my-5 mx-3">
+  <div class="card" style="width: 18rem;">
+    <img src="{{product.image.url}}" class="card-img-top" alt="image">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <p class="card-text">{{product.dsc}}</p>
+      <a href="#" class="btn btn-primary">{{product.price}}Rs</a>
+    </div>
+</div>
+</div>
+{% endfor %}
 {% endblock body %}
